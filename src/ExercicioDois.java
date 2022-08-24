@@ -32,22 +32,80 @@ public class ExercicioDois {
             // 1) Crie um programa que receba três notas calcule a média e diga se foi aprovado (`(nota1 + nota2 + nota3 / 3)`) e (`média maior que 7 para ser aprovado`).
             case 1:
                 // calculaMedia(double notaUm, double notaDois, double notaTres);
+                double notaUm=0, notaDois=0, notaTres=0, media=0, soma=0;
+                System.out.println("*** Cálcule a média do aluno!");
+                try {
+                    System.out.println("Digite a primeira nota.");
+                    notaUm   = scanner.nextInt();
+                    System.out.println("Digite a segunda nota.");
+                    notaDois = scanner.nextInt();
+                    System.out.println("Digite a terceira nota.");
+                    notaTres = scanner.nextInt();
+                } catch (Exception e) {
+                    System.err.println(e.getMessage());
+                    notaUm   = 0;
+                    notaDois = 0;
+                    notaTres = 0;
+                }
+                soma  = notaUm + notaDois + notaTres;
+                media = calculaMedia(notaUm, notaDois, notaTres);
+                System.out.println("A soma das notas do aluno foi: " + soma);
+                System.out.println("A média das notas do aluno foi: " + media);
+                if(media>=7)
+                    System.out.println("Aluno aprovado. Parabéns! Boa sorte na sua nova caminhada!");
+                else 
+                    System.out.println("Aluno foi Reprovado, estude mais na próxima vez, boa sorte.");
                 break;
             // 2) Crie um programa que receba um número e indique o mês que representa.
             case 2:
                 // qualMes(int mes);
+                int mesInformado=0;
+                System.out.println("***Apresente o nome do mês representado pelo número***");
+                try {
+                    System.out.println(" Digite o número para representar o mês: ");
+                    mesInformado = scanner.nextInt();                  
+                    System.out.println("o mês representado por esse número é " + qualMes(mesInformado));
+                } catch (Exception e) {
+                    System.err.println(e.getMessage());
+                }
+                
                 break;
             // 3) Crie um programa que simule um jogo da forca, com a entrada da palavra oculta, a quantidade de tentativas para acerto e depois solicite a entrada da palavra. A cada erro deve imprimir a quantidade de tentativas restantes e o 'membro' que foi marcado. Ao final deve imprimir se acertou ou não a palavra e se foi 'enforcado'.
             case 3:
                 // forca(String palavra, int tentativa, Scanner scanner);
+                System.out.println("1º Jogador: Digite uma palavra.");
+                String palavra_oculta = scanner.next();
+
+                System.out.println("1º Jogador: Defina o número de tentativas do seu adversário.");
+                int tentativas = scanner.nextInt();
+
+                for(int i = tentativas; i > 0; i--) {
+                    System.out.println("2º Jogador: Digite a palavra chave");
+                    String palavra_chave = scanner.next();
+                    if(palavra_oculta.equals(palavra_chave)) {
+                        System.out.println("Parabéns você acertou! Você precisou de " + (tentativas - i + 1) + " tentativas para acertar");
+                        break;
+                    } else if( i > 1 ) {
+                        System.out.println("Você Errou! Tente outra vez");
+                    } else {
+                        System.out.println("Que pena você perdeu a palavra chave era" + palavra_oculta + ", mais sorte na próxima");
+                    }
+                }
                 break;
             // 4) Crie um programa que imprima a tabuada de 0 a 10.
             case 4:
                 // tabuada(int numero);
+                System.out.println("Digite um número e descubra a sua tabuada.");
+                int numero = scanner.nextInt();
+
+                tabuada(int numero)
                 break;
             // 5) Crie um programa que receba uma String e imprima linha a linha suas letras.
             case 5:
                 // letraALetra(String palavra);
+                System.out.println("Digite uma palavra.");
+                String palavra = scanner.next();
+                char letraALetra();
                 break;
             // 6) Crie um programa que de a soma de todos os números ímpares e múltiplos de 7 entre 1 e 500.
             case 6:
@@ -88,19 +146,32 @@ public class ExercicioDois {
     }
 
     public static double calculaMedia(double notaUm, double notaDois, double notaTres) {
-        return 0;
+        double soma = (notaUm + notaDois + notaTres);
+        double media = (soma / 3);
+        return media;
     }
 
-    public static String qualMes(int mes) {
-        return "";
+    public static String qualMes(int mes) throws Exception {
+        String[] meses = new String[]{ "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
+        if (mes < 1 || mes > 12) {
+            throw new Exception("Você digitou um mês inválido");
+        }
+        return meses[mes - 1];
     }
 
     public static int[] tabuada(int numero) {
+        for (int i = 0 ;  i <= 10 ; i++) {
+            System.out.println(" >> " + numero + " * " + i + " = " + (numero*i));
+        }    
         return new int[10];
     }
 
     public static char[] letraALetra(String palavra) {
-        return new char[1];
+        char[] letras = new char[palavra.length()];
+        for(int i = 0; i < letras.length; i++) {
+            l
+        }
+        return letras;
     }
 
     public static int numerosImpares() {

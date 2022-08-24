@@ -138,8 +138,22 @@ public class ExercicioUm {
                 break;
             // 7) Crie um programa que calcule o percentual de imposto pago (`faturamento \ qtd imposto`)
             case 7:
+                double faturamento, qtdImposto, percentualImposto=0;
                 System.out.println("Calcule o imposto cobrado pelo faturamento anual de uma empresa.");
-                percentualImposto(127000.00, 8763.00);
+                try {
+                    System.out.println("Digite o valor faturado!");
+                    faturamento = scanner.nextInt();
+                    System.out.println("Digite o valor do imposto cobrado");
+                    qtdImposto = scanner.nextInt();
+                } catch (Exception e) {
+                    System.err.println(e.getMessage());
+                    faturamento = 0;
+                    qtdImposto = 0;
+                } 
+                System.out.println(" O Valor faturado foi de R$ " + faturamento + ".");
+                System.out.println(" O valor do imposto cobrado foi de R$ " + qtdImposto + ".");
+                percentualImposto(faturamento, qtdImposto);
+                System.out.println("O imposto anual retido desta empresa foi de " + percentualImposto + "%.");
                 break;
             // 8) Crie um programa que teste se um valor é par ou ímpar
             case 8:
@@ -219,10 +233,7 @@ public class ExercicioUm {
     }
 
     public static double percentualImposto(double faturamento, double qtdImposto) {
-        System.out.println(" O Valor faturado foi de R$ " + faturamento + ".");
-        System.out.println(" O valor do imposto cobrado foi de R$ " + qtdImposto + ".");
         double percentualImposto = (qtdImposto * 100) / faturamento;
-        System.out.println("O imposto anual retido desta empresa foi de " + percentualImposto + "%.");
         return percentualImposto;
     }
 
@@ -246,7 +257,7 @@ public class ExercicioUm {
     }
 
     public static double percentualImpostoSalario(double salario) {
-        double valorIr = salario.nextDouble();
+        double valorIr = salario;
         // Até 1.903,98             | Isento
             // De 1.903,99 até 2.826,65 | 7,5%
             // De 2.826,66 até 3.751,05 | 15%
