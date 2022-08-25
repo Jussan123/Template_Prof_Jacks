@@ -97,19 +97,22 @@ public class ExercicioDois {
                 // tabuada(int numero);
                 System.out.println("Digite um número e descubra a sua tabuada.");
                 int numero = scanner.nextInt();
-
-                tabuada(int numero)
+                tabuada(numero);
                 break;
             // 5) Crie um programa que receba uma String e imprima linha a linha suas letras.
             case 5:
                 // letraALetra(String palavra);
                 System.out.println("Digite uma palavra.");
                 String palavra = scanner.next();
-                char letraALetra();
+                for (char letra : letraALetra(palavra)) {
+                    System.out.println(letra);
+                }
+
                 break;
             // 6) Crie um programa que de a soma de todos os números ímpares e múltiplos de 7 entre 1 e 500.
             case 6:
-                // numerosImpares();
+                 // numerosImpares();
+                System.out.println("Cálculo da soma de todos os números ímpares e múltiplos de 7 entre 1 e 500 é: " + numerosImpares());
                 break;
             // 7) Crie um programa que tenha como entrada as notas de um aluno. Somente se encerrará quando for inserida uma nota negativa. Ao final deverá informar a média das notas.
             case 7:
@@ -118,6 +121,9 @@ public class ExercicioDois {
             // 8) Crie um programa que receba um valor e imprima o fatorial desse número. Ex.: 3! = 3 x 2 x 1 = 6.
             case 8:
                 // fatorial(int numero);
+                System.out.println("Digite um valor e descubra o seu Fatorial");
+                int valor = scanner.nextInt();
+                System.out.println("O resultado do fatorial de " + valor + " é: " + fatorial(valor));
                 break;
             // 9) Crie um programa que receba a altera e o peso e calcule o IMC:
             // 
@@ -169,21 +175,33 @@ public class ExercicioDois {
     public static char[] letraALetra(String palavra) {
         char[] letras = new char[palavra.length()];
         for(int i = 0; i < letras.length; i++) {
-            l
+            letras[i] = palavra.charAt(i);
         }
         return letras;
     }
 
     public static int numerosImpares() {
-        return 0;
+        int soma=0;
+        for(int i=0; i<=500; i++) {
+            if(i % 2 != 0 && i % 7 == 0) {
+                soma = soma + i;
+            }
+        }
+        return soma;
     }
 
     public static double calculaMedia(double[] notas) {
         return 0;
     }
 
-    public static int fatorial(int numero) {
-        return 0;
+    public static int fatorial(int valor) {
+        int fatorial = valor;
+        for(int i = valor; i > 0; i--) {
+            fatorial *= i;
+            System.out.println(i + (i !=1 ? "X" : ""));
+        }
+        System.out.println("=");
+        return fatorial;
     }
 
     public static double imc(double altura, double peso) {
