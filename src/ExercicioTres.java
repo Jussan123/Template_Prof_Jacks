@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -36,8 +37,20 @@ public class ExercicioTres {
         switch (menu) {
             // 1) Crie um programa que receba um valor e calcule a tabuada deste valor, salvando seu resultado em um arquivo de texto.
             case 1:
+<<<<<<< HEAD
                 // tabuada(int number);
                 tabuada(menu);
+=======
+                System.out.println("Imprimindo a tabuada!");
+                System.out.println("Digite o valor que você deseja saber a tabuada");
+                int numero = scanner.nextInt();
+                System.out.println(numero);
+                tabuada(numero);
+
+                System.out.println("Foi gerado um novo documento com os valores recebidos de forma ordenada!");
+                System.out.println("O arquivo gerado foi: arquivoOrdenado.txt");
+        
+>>>>>>> a848534f95c57878a6a68a8214c0a3a8ae808901
                 break;
             // 2) Crie um programa que leia e imprima no console todas as linhas de um arquivo de texto.
             case 2:
@@ -96,6 +109,7 @@ public class ExercicioTres {
         
     }
 
+<<<<<<< HEAD
     public static void tabuada(int number) {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("tabuada.txt"));
@@ -106,6 +120,48 @@ public class ExercicioTres {
             writer.close();
         } catch (IOException e) {
             System.err.println(e.getMessage());
+=======
+
+    public static void tabuada(int number) {
+        try {
+            /*String fileName = "tabuada";
+            String extension = ".txt";
+            boolean isExists = false;
+            int contador = 0;
+            String name = "";
+            do {
+                name = fileName + (contador > 0 ? "(" +contador+ ")" : "") + extension;
+                File file = new File(name);
+                contador++;
+                isExists = file.exists();
+            } while (isExists);*/
+            String name = "tabuada.txt";
+            String content = "";
+            String line = "";
+
+            File file = new File(name);
+            if (file.exists()) {
+                BufferedReader leitura = new BufferedReader(new FileReader(name));
+                do {
+                    line = leitura.readLine();
+                    content += line != null ? line + "\n" : "";
+                } while (line != null);
+                leitura.close();
+            }
+
+            BufferedWriter escreve = new BufferedWriter(new FileWriter(name));
+            escreve.append(content);
+            escreve.newLine();
+            escreve.append("Imprimindo a tabuada de " + number); // append é um método que é usado para anexar a representação de string do argumento booleano a uma determinada sequência.
+            escreve.newLine();
+            for(int i = 0; i <= 10; i++) {
+                escreve.append(" >> " + number + " * " + i + " = " + (number*i));  // adicionando linha com /n
+                escreve.newLine();
+            }
+            escreve.close();
+        } catch (Exception e) {
+            // TODO: handle exception
+>>>>>>> a848534f95c57878a6a68a8214c0a3a8ae808901
         }
     }
 
