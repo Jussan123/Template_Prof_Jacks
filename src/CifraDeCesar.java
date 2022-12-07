@@ -8,5 +8,9 @@ public class CifraDeCesar {
     public String mensagemCifrada() {
         return "";
     }
+
+    public String criptografar() {
+        return null;
+    }
     
 }

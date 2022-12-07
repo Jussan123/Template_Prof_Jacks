@@ -1,5 +1,5 @@
 public class ContaCorrente {
-    public ContaCorrente(String numeroConta, String agencia, double saldo, String nomeTitular) {
+    public ContaCorrente(int numeroConta, int numeroAgencia, double saldo, String nomeTitular) {
         
     }
     public double getSaldo() {
